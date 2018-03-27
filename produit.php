@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-//connexion à la base de données
+//connexion ï¿½ la base de donnï¿½es
 require_once("conn.php");
 //recuperation des variables de langues
 require_once("inc_lang.php");
@@ -10,7 +10,7 @@ if(isset($_GET['type'])) $type = $_GET['type'];
 if(isset($_GET['idGenre'])) $idGenre = $_GET['idGenre'];
 
 //parametrage du tableau d'affichage
-$cpt = 1; 		//image de début
+$cpt = 1; 		//image de dï¿½but
 $nbColonne = 3; //nb de colonne pour laffichage des images
 
 //selectionne les sous rubriques
@@ -129,7 +129,7 @@ document.write('<img src="http://www.idep-multimedia.com/JSstats.php?siteid=858&
 			{
 	
 				if($cpt == 1){ ?> 
-		<tr> <?php } // si c'est le début d'une ligne on ouvre la ligne?>
+		<tr> <?php } // si c'est le dÃ©but d'une ligne on ouvre la ligne?>
 					<td align="center"> <a href="<?= $chemin ?>?idGenre=<?= $res['genre_oeuvre']; ?>&idOeuvre=<?= $res['id_oeuvre']; ?>&type=<?= $type?>&langue=<?= $_SESSION['langue']?>"><img src="<?= $repertoire_oeuvre_mini.$res['img_oeuvre']; ?>" border="0"></a><span class="titre"><br>
 					  <?= $res[$img_prefix."nom_oeuvre"]; ?></span>				</td>
 				<?php  if($cpt == $nbColonne) 
@@ -137,8 +137,9 @@ document.write('<img src="http://www.idep-multimedia.com/JSstats.php?siteid=858&
 						echo "</tr>"; //on ferme la ligne
 						$cpt = 1;
 					}//on ferme la ligne
-				
-				 $cpt++; //passe à la colonne suivante
+					else {
+				        $cpt++; //passe Ã  la colonne suivante
+					}
 			}
 			$r->free();
 		}
